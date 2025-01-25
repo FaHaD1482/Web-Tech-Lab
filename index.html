@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab task</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="main-header">
+        <img id="id-img" src="images/Screenshot 2024-11-06 150457.png" alt="">
+        <h1>Book Borrowing System</h1>
+    </div>
+    <div class="main-div">
+        <div class="left-div" id="used-token-left-div">
+            <h3>Used Tokens</h3>
+        </div>
+        <div class="middle-div">
+            <div class="top-div" id="top-div-book">
+                <h3>Books List</h3>
+                <table id="book-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>ISBN</th>
+                            <th>Author</th>
+                            <th>Quantity</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be populated dynamically by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="top-div" id="top-div-bookUpdate">
+                <h3>Book Info Update</h3>
+                <form id="update-book-form" action="process.php" method="post">
+                    <input type="hidden" id="update-id" name="id">
+                    <input type="text" id="update-title" name="title" placeholder="Book Title" required><br>
+                    <input type="text" id="update-isbn" name="isbn" placeholder="ISBN Number" readonly><br>
+                    <input type="text" id="update-author" name="author" placeholder="Book Author" required><br>
+                    <input type="number" id="update-quantity" name="quantity" placeholder="Book Quantity" required><br>
+                    <input type="text" id="update-category" name="category" placeholder="Book Category" required><br>
+                    <input type="submit" value="Update Book" id="btnUpdate" name="updateBook">
+                </form>
+            </div>
+            <div class="card-div">
+                <!-- Book images will be dynamically inserted here -->
+            </div>
+            <div id="bottom-top-div">
+                <h3>Add Book</h3>
+                <form action="addBook.php" method="post" enctype="multipart/form-data">
+                    <input type="text" id="bookTitle" name="bookTitle" placeholder="Book Title" required><br>
+                    <input type="text" id="isbnNo" name="isbnNo" placeholder="ISBN Number" required><br>
+                    <input type="text" id="author" name="author" placeholder="Book Author" required><br>
+                    <input type="number" id="quantity" name="quantity" placeholder="Book Quantity" required><br>
+                    <input type="text" id="category" name="category" placeholder="Book Category" required><br>
+                    <input type="file" id="bookImage" name="bookImage" accept="image/jpeg, image/png, image/jpg"><br>
+                    <input type="submit" value="Submit" id="btnSubmit" name="submit">
+                </form>
+            </div>
+            <div class="card2-div">
+                <div class="first-card-div">
+                    <h3>Borrow Form</h3>
+                    <form action="process.php" method="post">
+                        <input type="text" id="stdName" name="stdName" placeholder="Student Full Name" required><br>
+                        <input type="text" id="stdID" name="stdID" placeholder="Student AIUB ID" required><br>
+                        <label for="books">Choose a book:</label><br>
+                        <select id="books" name="books" required>
+                        </select>
+                        <br>
+                        <label for="isbn">ISBN:</label><br>
+                        <input type="text" id="isbn" name="isbn" placeholder="ISBN"><br>
+                        <label for="borrowDate">Borrow Date:</label><br>
+                        <input type="date" name="borrowDate" id="borrowDate" required><br>
+                        <input type="number" name="token" id="token" placeholder="Token"><br>
+                        <label for="returnDate">Return Date:</label><br>
+                        <input type="date" name="returnDate" id="returnDate" required><br>
+                        <input type="text" id="fees" name="fees" placeholder="Fees" required><br>
+                        <input type="submit" value="Submit" id="btnSubmit" name="submit">
+                    </form>
+                </div>
+                <div class="second-card-div">
+                    <h3>Available Tokens</h3>
+                    <div id="available-tokens"></div>
+                </div>
+            </div>
+        </div>
+        <div class="left-div"></div>
+    </div>
+</body>
+
+</html>
