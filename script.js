@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fetchTopBooks();
 });
 
-// Function to fetch and display available and used tokens
+// fetch and display available and used tokens
 function fetchTokens() {
     fetch('process.php?fetchTokens=1')
         .then(response => response.json())
@@ -16,14 +16,13 @@ function fetchTokens() {
         .catch(error => console.error('Error fetching tokens:', error));
 }
 
-// Function to fetch and display books in a table
+// fetch and display books in a table
 function fetchBooks() {
     fetch('getBooks.php')
         .then(response => response.json())
         .then(books => {
             const bookTableBody = document.querySelector('#book-table tbody');
-            bookTableBody.innerHTML = ''; // Clear existing rows
-
+            bookTableBody.innerHTML = '';
             books.forEach(book => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -47,7 +46,7 @@ function fetchBooks() {
         .catch(error => console.error('Error fetching books:', error));
 }
 
-// Function to fetch and display the top 3 books with maximum quantity
+// fetch and display the top 3 books with maximum quantity
 function fetchTopBooks() {
     fetch('getTopBooks.php')
         .then(response => response.json())
@@ -67,7 +66,7 @@ function fetchTopBooks() {
         .catch(error => console.error('Error fetching top books:', error));
 }
 
-// Function to fetch and display used tokens
+// fetch and display used tokens
 function fetchUsedTokens() {
     fetch('getUsedTokens.php')
         .then(response => response.json())
@@ -85,7 +84,7 @@ function fetchUsedTokens() {
         .catch(error => console.error('Error fetching used tokens:', error));
 }
 
-// Function to populate the "Choose a book" dropdown
+// populate the "Choose a book" dropdown
 function populateBookDropdown() {
     fetch('getBooks.php')
         .then(response => response.json())
@@ -109,7 +108,7 @@ function populateBookDropdown() {
         .catch(error => console.error('Error fetching books for dropdown:', error));
 }
 
-// Function to populate the update form with book details
+// populate the update form with book details
 function populateUpdateForm(bookId) {
     fetch(`getBookById.php?id=${bookId}`)
         .then(response => response.json())
